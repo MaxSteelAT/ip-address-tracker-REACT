@@ -37,7 +37,8 @@ function App() {
         </div>
       </div>
       <div>
-        <div style={{ with: '100vw', height: '400px', backgroundColor: 'blueviolet' }}></div>
+        <div style={{ with: '100vw', height: '700px', backgroundColor: 'blueviolet' }}></div>
+      
       </div>
     </div>
   );
