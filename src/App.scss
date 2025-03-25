@@ -70,7 +70,7 @@ $dark-gray: hsl(0, 0%, 59%);
 }
 
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -101,8 +101,7 @@ $dark-gray: hsl(0, 0%, 59%);
 
 .map-container{
   width: 100vw;
-  height: 700px;
-  background-color: blueviolet;
+  height: 700px;;
 
   .map-template{
     width: 100%;
