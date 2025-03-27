@@ -16,56 +16,86 @@ $dark-gray: hsl(0, 0%, 59%);
 }
 
 .title {
-  margin-top: 70px;
+  margin-top: 50px;
+  margin-bottom: 35px;
   font-size: 50px;
   color: aliceblue;
 }
 
-.input-group.mb-3{
+.input-group.mb-3 {
 
-  .form-control{
-  height: 60px;
-  width: 500px;
-  padding: 0 20px;
-  font-size: 20px;
+  .form-control {
+    height: 55px;
+    width: 500px;
+    padding: 0 20px;
+    font-size: 20px;
+    border-radius: 20px 0 0 20px;
+    border-style: none;
+    cursor: pointer;
+  }
+  
 
-  border-radius:20px 0 0 20px;
-  border-style: none;
+  .btn.btn-outline-secondary {
+    height: 57px;
+    width: 65px;
+    border-radius: 0 20px 20px 0;
+    background-color: hsl(0deg 0% 24.71%);
+    border-style: none;
+    cursor: pointer;
+  }
 
 }
-.btn.btn-outline-secondary{
-  height: 62px;
-  width: 65px;
-  border-radius:0 20px 20px 0;
-  background-color: hsl(0deg 0% 24.71%);
-  border-style: none;
-}
-}
-
+input:focus {
+    outline: none;
+  }
 
 .ip-address-information {
   display: flex;
   justify-content: space-evenly;
   position: absolute;
   align-items: center;
-  bottom: -95px;
+  bottom: -70px;
   background-color: aliceblue;
-  width: 1395px;
+  width: 1390px;
   border-radius: 30px;
-  height: 210px;
-  margin-top: 50px;
+  height: 150px;
+  margin-top: 45px;
 
   h4 {
-    font-size: 20px;
+    font-size: 13px;
     color: $dark-gray;
+    margin-bottom: 0;
+    margin-top: 70px;
+    letter-spacing: 2px
   }
 
   h3 {
-    font-size: 30px;
+    font-size: 22px;
+    margin-top: 10px;
+    height: 90px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+  }
+
+  .col-sm-12.col-md-3:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 25%;
+    width: 1px;
+    height: 50%;
+    background-color: $dark-gray;
   }
 }
 
-.normal{
+
+.col-sm-12.col-md-3 {
+  margin: 0 50px;
+  position: relative;
+  width: 25%;
+}
+
+.normal {
   color: blue;
 }
 
@@ -99,11 +129,12 @@ $dark-gray: hsl(0, 0%, 59%);
   color: #61dafb;
 }
 
-.map-container{
+.map-container {
   width: 100vw;
-  height: 700px;;
+  height: 560px;
+  ;
 
-  .map-template{
+  .map-template {
     width: 100%;
     height: 100vh;
   }
@@ -114,6 +145,7 @@ $dark-gray: hsl(0, 0%, 59%);
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

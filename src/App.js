@@ -85,29 +85,29 @@ function App() {
         <div className="row ip-address-information">
           <div className="col-sm-12 col-md-3">
             <h4>IP ADDRESS</h4>
-            <h3>{location && location.ip ? location.ip : "--"}</h3>
+            <h3 className='style-line'>{location && location.ip ? location.ip : "--"}</h3>
           </div>
           <div className="col-sm-12 col-md-3">
             <h4>LOCATION</h4>
             {/* Se puede validar que existan las propiedades de esta manera.
             Se pregunta si tiene la propiedad por niveles. */}
-            <h3>{location && location.location && location.location.region ? location.location.region : "--"}, {location ? location.location.city : "--"}</h3>
+            <h3 className='style-line'>{location && location.location && location.location.region ? location.location.region : "--"}, {location ? location.location.city : "--"}</h3>
           </div>
           <div className="col-sm-12 col-md-3">
             <h4>TIMEZONE</h4>
             {/* Se puede validar que existan las propiedades de esta manera.
             Se pregunta si existe cada propiedad */}
-            <h3>{location?.location?.timezone ? location.location.timezone : "--"}</h3>
+            <h3 >{location?.location?.timezone ? location.location.timezone : "--"}</h3>
           </div>
           <div className="col-sm-12 col-md-3">
             <h4>ISP</h4>
-            <h3>{location ? location.isp : "--"}</h3>
+            <h3 className='style-line'>{location ? location.isp : "--"}</h3>
           </div>
         </div>
       </div>
       <div>
         <div className='map-container'>
-          <MapContainer className='map-template' center={[position.lat, position.lng]} zoom={16} style={{ height: '740px', width: '100%', zIndex: '1' }}>
+          <MapContainer className='map-template' center={[position.lat, position.lng]} zoom={16} style={{ height: '560px', width: '100%', zIndex: '1' }}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
