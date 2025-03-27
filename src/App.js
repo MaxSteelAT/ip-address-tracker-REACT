@@ -28,9 +28,6 @@ function App() {
     getIpInfo()
   }, []);
 
-  console.log(position)
-
-
   const getIpInfo = () => {
     const search = input=='' ? 'www.starlink.com' : input
 
@@ -42,10 +39,7 @@ function App() {
           throw Error("MENSAJE DE ERROR")
         }
         setLocation(data)
-        console.log(data)
         setPosition({ lat: data.location.lat, lng: data.location.lng });
-
-
       })
       .catch((error) => console.error("Error obteniendo la información:", error));
   }
@@ -65,7 +59,6 @@ function App() {
 
   const submit = (event) => {
     event.preventDefault();
-    console.log("se dio enter");
   };
 
 
