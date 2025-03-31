@@ -1,11 +1,9 @@
 import './App.scss';
-import image from "../src/images/pattern-bg-desktop.png";
 import iconArrow from "../src/images/icon-arrow.svg"
-
-
+import React, { useState, useEffect } from "react";
+import Alert from './Alert';
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useState, useEffect } from 'react'
 
 const MapUpdater = ({ lat, lng }) => {
   const map = useMap();
@@ -22,22 +20,46 @@ function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
   const [position, setPosition] = useState({ lat: 51.505, lng: -0.09 });
   const [input, setInput] = useState('')
-
+  const [alert, setAlert] = useState({ type: 'info', message: '', visible: false })
 
   useEffect(() => {
     getIpInfo()
   }, []);
 
+const closeAlert = () => {
+    setAlert({
+        type: 'info', message: '', visible: false
+      })
+  } 
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      closeAlert()
+    }, 3000);
+    return () => clearTimeout(timer);
+
+  }, [alert.visible]);
+
   const getIpInfo = () => {
-    const search = input=='' ? 'www.starlink.com' : input
+    const search = input == '' ? 'www.starlink.com' : input
 
     const option = isIP(search) ? `&ipAddress=${search}` : `&domain=${search}`
     fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}${option}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.code) {
-          throw Error("MENSAJE DE ERROR")
+          setAlert({
+            type: 'error',
+            message: 'Algo salió mal.',
+            visible: true
+          })
+          throw Error("Algo salió mal.")
         }
+        setAlert({
+          type: 'info',
+          message: 'Se obtuvo la información correctamente.',
+          visible: true
+        })
         setLocation(data)
         setPosition({ lat: data.location.lat, lng: data.location.lng });
       })
@@ -61,9 +83,12 @@ function App() {
     event.preventDefault();
   };
 
+  
+
 
   return (
     <div className="App">
+      <Alert type={alert.type} message={alert.message} visible={alert.visible} close={closeAlert} />
       <div className='header'>
         <h3 className='title'>IP Address Tracker</h3>
         <form onSubmit={submit}>
