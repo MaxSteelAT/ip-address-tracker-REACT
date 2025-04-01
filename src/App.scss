@@ -33,7 +33,7 @@ $dark-gray: hsl(0, 0%, 59%);
     border-style: none;
     cursor: pointer;
   }
-  
+
 
   .btn.btn-outline-secondary {
     height: 57px;
@@ -45,9 +45,10 @@ $dark-gray: hsl(0, 0%, 59%);
   }
 
 }
+
 input:focus {
-    outline: none;
-  }
+  outline: none;
+}
 
 .ip-address-information {
   display: flex;

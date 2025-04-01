@@ -16,7 +16,7 @@
     font-size: 15px;
   }
 
-  .ip-address-information{
+  .ip-address-information {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -29,9 +29,9 @@
   .col-sm-12.col-md-3 {
     margin: 0;
     width: 100%;
-   }
+  }
 
-  .ip-address-information h4{
+  .ip-address-information h4 {
     margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
@@ -39,7 +39,7 @@
     font-size: 12px;
   }
 
-  .ip-address-information h3{
+  .ip-address-information h3 {
     height: auto;
     display: flex;
     justify-content: center;
@@ -47,7 +47,7 @@
     margin-bottom: 10px;
   }
 
-  .ip-address-information .col-sm-12.col-md-3:not(:last-child)::after{
+  .ip-address-information .col-sm-12.col-md-3:not(:last-child)::after {
     content: none;
   }
 }

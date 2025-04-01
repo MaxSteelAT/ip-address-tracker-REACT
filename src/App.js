@@ -12,17 +12,17 @@ import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 're
 import 'leaflet/dist/leaflet.css';
 
 const customIcon = new L.Icon({
-  iconUrl: iconLocation, // Usa el SVG importado
-  iconSize: [32, 32], // Tamaño del icono
-  iconAnchor: [16, 32], // Punto de anclaje
-  popupAnchor: [0, -32], // Donde aparece el popup
+  iconUrl: iconLocation,
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32],
 });
 
 const MapUpdater = ({ lat, lng }) => {
   const map = useMap();
   useEffect(() => {
     if (lat && lng) {
-      map.setView([lat, lng], 13); // Centrar mapa
+      map.setView([lat, lng], 13);
     }
   }, [lat, lng, map]);
   return null;
@@ -39,11 +39,11 @@ function App() {
     getIpInfo()
   }, []);
 
-const closeAlert = () => {
+  const closeAlert = () => {
     setAlert({
-        type: 'info', message: '', visible: false
-      })
-  } 
+      type: 'info', message: '', visible: false
+    })
+  }
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -109,7 +109,6 @@ const closeAlert = () => {
             </button>
           </div>
         </form>
-
         <div className="row ip-address-information">
           <div className="col col-sm-12 col-md-3">
             <h4>IP ADDRESS</h4>
@@ -140,7 +139,7 @@ const closeAlert = () => {
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             <Marker position={[position.lat, position.lng]} icon={customIcon}>
-              <Popup> Estas aqui</Popup>
+              <Popup>You're here</Popup>
             </Marker>
             <MapUpdater lat={position.lat} lng={position.lng} />
           </MapContainer>
