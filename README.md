@@ -45,4 +45,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📬 Contact
 📧 Email: mtra.ingrid.lopez@gmail.com
-💼 LinkedIn: [Ingrid López](https://www.linkedin.com/in/ingrid-lopez-61a874321/
+💼 LinkedIn: [Ingrid López](https://www.linkedin.com/in/ingrid-lopez-61a874321/)
