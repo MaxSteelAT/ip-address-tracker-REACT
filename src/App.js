@@ -1,9 +1,22 @@
 import './App.scss';
+import './responsive/responsive.scss'
+
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import iconLocation from '../src/images/icon-location.svg';
+
 import iconArrow from "../src/images/icon-arrow.svg"
 import React, { useState, useEffect } from "react";
 import Alert from './Alert';
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+
+const customIcon = new L.Icon({
+  iconUrl: iconLocation, // Usa el SVG importado
+  iconSize: [32, 32], // Tamaño del icono
+  iconAnchor: [16, 32], // Punto de anclaje
+  popupAnchor: [0, -32], // Donde aparece el popup
+});
 
 const MapUpdater = ({ lat, lng }) => {
   const map = useMap();
@@ -83,9 +96,6 @@ const closeAlert = () => {
     event.preventDefault();
   };
 
-  
-
-
   return (
     <div className="App">
       <Alert type={alert.type} message={alert.message} visible={alert.visible} close={closeAlert} />
@@ -101,23 +111,23 @@ const closeAlert = () => {
         </form>
 
         <div className="row ip-address-information">
-          <div className="col-sm-12 col-md-3">
+          <div className="col col-sm-12 col-md-3">
             <h4>IP ADDRESS</h4>
             <h3 className='style-line'>{location && location.ip ? location.ip : "--"}</h3>
           </div>
-          <div className="col-sm-12 col-md-3">
+          <div className="col col-sm-12 col-md-3">
             <h4>LOCATION</h4>
             {/* Se puede validar que existan las propiedades de esta manera.
             Se pregunta si tiene la propiedad por niveles. */}
             <h3 className='style-line'>{location && location.location && location.location.region ? location.location.region : "--"}, {location ? location.location.city : "--"}</h3>
           </div>
-          <div className="col-sm-12 col-md-3">
+          <div className="col col-sm-12 col-md-3">
             <h4>TIMEZONE</h4>
             {/* Se puede validar que existan las propiedades de esta manera.
             Se pregunta si existe cada propiedad */}
             <h3 >{location?.location?.timezone ? location.location.timezone : "--"}</h3>
           </div>
-          <div className="col-sm-12 col-md-3">
+          <div className="col col-sm-12 col-md-3">
             <h4>ISP</h4>
             <h3 className='style-line'>{location ? location.isp : "--"}</h3>
           </div>
@@ -129,7 +139,7 @@ const closeAlert = () => {
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <Marker position={[position.lat, position.lng]}>
+            <Marker position={[position.lat, position.lng]} icon={customIcon}>
               <Popup> Estas aqui</Popup>
             </Marker>
             <MapUpdater lat={position.lat} lng={position.lng} />

@@ -1,0 +1,53 @@
+@media (max-width: 600px) {
+  body {
+    display: flex;
+    background-color: black;
+  }
+
+  .title {
+    width: 300px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 30px;
+  }
+
+  .input-group.mb-3 .form-control {
+    width: 270px;
+    font-size: 15px;
+  }
+
+  .ip-address-information{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 380px;
+    height: auto;
+    position: static;
+    // text-align: center;
+  }
+
+  .col-sm-12.col-md-3 {
+    margin: 0;
+    width: 100%;
+   }
+
+  .ip-address-information h4{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+  }
+
+  .ip-address-information h3{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+  }
+
+  .ip-address-information .col-sm-12.col-md-3:not(:last-child)::after{
+    content: none;
+  }
+}
