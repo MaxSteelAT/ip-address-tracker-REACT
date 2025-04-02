@@ -23,12 +23,12 @@ Search for any Ip addresses or domain, and see their information.
 - Geo ipify Api
 
 ## 📦 Installation
-bash
+```bash
 git clone https://github.com/MaxSteelAT/ip-address-tracker-REACT.git
 cd ip-address-tracker-REACT
 npm install
 npm start
-
+```
 ## 🎯 How to Use
 Open site project using a browser.
 
