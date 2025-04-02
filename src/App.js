@@ -63,10 +63,10 @@ function App() {
         if (data.code) {
           setAlert({
             type: 'error',
-            message: 'Algo salió mal.',
+            message: 'Something went wrong.',
             visible: true
           })
-          throw Error("Algo salió mal.")
+          throw Error("Something went wrong.")
         }
         setAlert({
           type: 'info',
